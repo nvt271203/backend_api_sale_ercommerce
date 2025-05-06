@@ -11,6 +11,7 @@ const jwt = require('jsonwebtoken');
 authRouter.post('/api/signup', async(req, res)=>{     // Định nghĩa 1 router 
     try {
         const {fullName, email, password} = req.body;
+        
         const exitsingEmail = await User.findOne({email});
         if (exitsingEmail) {
             return res.status(400).json({msg:"Địa chỉ email đã tồn tại !"})
